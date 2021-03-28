@@ -9,7 +9,7 @@ public class PracticeAstronomyScreen : MonoBehaviour
     [SerializeField]
     private Button homeButton;
 
-    [SerializeField]
+   /* [SerializeField]
     private ToggleGroup question1;
     [SerializeField]
     private ToggleGroup question2;
@@ -18,7 +18,7 @@ public class PracticeAstronomyScreen : MonoBehaviour
     [SerializeField]
     private ToggleGroup question4;
     [SerializeField]
-    private ToggleGroup question5;
+    private ToggleGroup question5;*/
 
     [SerializeField]
     private Button selectToggleButton;
@@ -36,39 +36,24 @@ public class PracticeAstronomyScreen : MonoBehaviour
     private void OpenHome()
     {
         Debug.Log("OpenTheory");
-        ScreenManager.TransitScreen("MenuPanel", "TheoryAstronomyScreen");
+        GameObject.Find("DATA").GetComponent<MYPanel_controller>().changeActivePanel("MenuPanel","PracticeAstronomyLobby");
+        
     }
 
     private void SelectToggle()
     {
         value = 0;
+        MYClassQuestion[] questions = GetComponentsInChildren<MYClassQuestion>();
+        for(int i=0;i<5;i++)
+        {
+            ToggleGroup question = questions[i].GetComponent<ToggleGroup>();
+            Toggle theActiveToggle = question.ActiveToggles().FirstOrDefault();
 
-        Toggle theActiveToggle1 = question1.ActiveToggles().FirstOrDefault();
-        Toggle theActiveToggle2 = question2.ActiveToggles().FirstOrDefault();
-        Toggle theActiveToggle3 = question3.ActiveToggles().FirstOrDefault();
-        Toggle theActiveToggle4 = question4.ActiveToggles().FirstOrDefault();
-        Toggle theActiveToggle5 = question5.ActiveToggles().FirstOrDefault();
-        if (theActiveToggle1.gameObject.name == "2") 
-        {
-            value++;
+            if(theActiveToggle != null)
+            {   if(theActiveToggle.GetComponentInChildren<Text>().text == questions[i].answer)
+                    value++;
+            }
         }
-        if (theActiveToggle2.gameObject.name == "2")
-        {
-            value++;
-        }
-        if (theActiveToggle3.gameObject.name == "1")
-        {
-            value++;
-        }
-        if (theActiveToggle4.gameObject.name == "3")
-        {
-            value++;
-        }
-        if (theActiveToggle5.gameObject.name == "2")
-        {
-            value++;
-        }
-
         result.text = "Ваш результат: "+ value + " б.";
 }
 

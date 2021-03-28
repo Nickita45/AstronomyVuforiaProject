@@ -18,13 +18,15 @@ public class MenuScreen : MonoBehaviour
     private void OpenTheory()
     {
         Debug.Log("OpenTheory");
-        ScreenManager.TransitScreen("TheoryAstronomyScreen", "MenuPanel");
+        GameObject.Find("DATA").GetComponent<MYPanel_controller>().changeActivePanel("TheoryAstronomyScreen", "MenuPanel");
+        //ScreenManager.TransitScreen("TheoryAstronomyScreen", "MenuPanel");
     }
 
     private void OpenPractice()
     {
         Debug.Log("OpenPractice");
-        ScreenManager.TransitScreen("PracticeAstronomyScreen", "MenuPanel");
+        GameObject.Find("DATA").GetComponent<MYPanel_controller>().changeActivePanel("PracticeAstronomyLobby", "MenuPanel");
+        //ScreenManager.TransitScreen("PracticeAstronomyScreen", "MenuPanel");
     }
 
 }

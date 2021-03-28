@@ -37,12 +37,14 @@ public class RegistraionScreen : MonoBehaviour
             PlayerPrefs.SetString("login", login.text);
             PlayerPrefs.SetString("password", password.text);
 
-            ScreenManager.TransitScreen("LoginPanel", "RegistrationPanel");
+            GameObject.Find("DATA").GetComponent<MYPanel_controller>().changeActivePanel("LoginPanel", "RegistrationPanel");
+            //ScreenManager.TransitScreen("LoginPanel", "RegistrationPanel");
         }
     }
 
     private void Back()
     {
-        ScreenManager.TransitScreen("LoginPanel", "RegistrationPanel");
+        GameObject.Find("DATA").GetComponent<MYPanel_controller>().changeActivePanel("LoginPanel", "RegistrationPanel");
+        //ScreenManager.TransitScreen("LoginPanel", "RegistrationPanel");
     }
 }

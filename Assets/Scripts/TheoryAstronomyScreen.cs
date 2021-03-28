@@ -14,18 +14,25 @@ public class TheoryAstronomyScreen : MonoBehaviour
     {
         homeButton.onClick.AddListener(OpenHome);
         ARButton.onClick.AddListener(OpenAR);
+        print("AA");
     }
 
     private void OpenHome()
     {
         Debug.Log("OpenTheory");
-        ScreenManager.TransitScreen("MenuPanel", "TheoryAstronomyScreen");
+        GameObject.Find("DATA").GetComponent<MYPanel_controller>().changeActivePanel("MenuPanel", "TheoryAstronomyScreen");
+        //MYPanel_controller.changeActivePanel(1,4);
+        //ScreenManager.TransitScreen("MenuPanel", "TheoryAstronomyScreen");
     }
 
-    private void OpenAR()
+    public void OpenAR()
     {
         Debug.Log("OpenAR");
         SceneManager.LoadScene("ARAstronomy", LoadSceneMode.Single);
+    }
+    public void OpenSunSystem()
+    {
+        GameObject.Find("DATA").GetComponent<MYPanel_controller>().changeActivePanel("TheorySunSystemScreen","TheoryAstronomyScreen");
     }
 
 }

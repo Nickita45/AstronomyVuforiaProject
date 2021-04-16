@@ -7,14 +7,19 @@ public class MenuScreen : MonoBehaviour
     private Button theoryButton;
     [SerializeField]
     private Button practiceButton;
-
+    [SerializeField]
+    private Button exitButton;
     // Start is called before the first frame update
     void Start()
     {
         theoryButton.onClick.AddListener(OpenTheory);
         practiceButton.onClick.AddListener(OpenPractice);
+        exitButton.onClick.AddListener(closeApp);
     }
-
+    private void closeApp()
+    {
+        Application.Quit();
+    }
     private void OpenTheory()
     {
         Debug.Log("OpenTheory");

@@ -55,8 +55,8 @@ public class PracticeAstronomyScreen : MonoBehaviour
             }
         }
         result.text = "Ваш результат: "+ value + " б.";
-}
-
+   }
+    
     public static Toggle GetActive(ToggleGroup aGroup)
     {
         return aGroup.ActiveToggles().FirstOrDefault();

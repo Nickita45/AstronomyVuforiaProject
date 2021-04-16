@@ -29,7 +29,7 @@ public class PracticeAstronomyScreen : MonoBehaviour
 
     void Start()
     {
-        homeButton.onClick.AddListener(OpenHome);
+        //homeButton.onClick.AddListener(OpenHome);
         selectToggleButton.onClick.AddListener(SelectToggle);
     }
 

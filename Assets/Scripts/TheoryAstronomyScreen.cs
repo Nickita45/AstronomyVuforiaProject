@@ -14,7 +14,7 @@ public class TheoryAstronomyScreen : MonoBehaviour
     {
         homeButton.onClick.AddListener(OpenHome);
         ARButton.onClick.AddListener(OpenAR);
-        print("AA");
+       
     }
 
     private void OpenHome()
@@ -28,6 +28,7 @@ public class TheoryAstronomyScreen : MonoBehaviour
     public void OpenAR()
     {
         Debug.Log("OpenAR");
+        
         SceneManager.LoadScene("ARAstronomy", LoadSceneMode.Single);
     }
     public void OpenSunSystem()

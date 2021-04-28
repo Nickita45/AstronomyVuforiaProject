@@ -22,6 +22,8 @@ public class SpinFree : MonoBehaviour
     [HideInInspector]
     public float directionChangeSpeed = 2f;
     public bool isForward = false;
+
+    public bool isMoon = false;
     // Update is called once per frame
     void Update()
     {
@@ -67,7 +69,10 @@ public class SpinFree : MonoBehaviour
 
             var x = Mathf.Cos(angle * speed) * radius;
             var z = Mathf.Sin(angle * speed) * radius;
+            if(!isMoon)
             transform.localPosition = new Vector3(x, 0, z);
+            else
+            transform.localPosition = new Vector3(x, z, 0);
            // transform.rotation = Quaternion.identity;
 
         }
